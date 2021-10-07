@@ -1,3 +1,7 @@
+/**
+Josephus Problem
+Rohit Kumar | 07/10/2021
+*/
 #include <stdio.h>
 struct Node
 {
