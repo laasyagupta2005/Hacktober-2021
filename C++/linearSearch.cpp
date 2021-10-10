@@ -1,3 +1,11 @@
+/*
+linear search
+Author: https://github.com/dev-lovedeep
+Date: 10 October, 2021
+*/
+
+// one of the very basic searching technique
+// time complexity: O(n)
 #include<bits/stdc++.h>
 using namespace std;
 
