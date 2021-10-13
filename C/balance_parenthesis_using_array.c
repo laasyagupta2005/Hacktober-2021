@@ -1,70 +1,81 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+/**
+Balance parenthesis Problem 
+Naman kumar | 13/10/2021
+*/
 
-struct stack{
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct stack
+{
     int size;
     char *arr;
     int top;
 };
 
-int isEmpty(struct stack *p){
-    if (p->top==-1)
-    {      
+int isEmpty(struct stack *p)
+{
+    if (p->top == -1)
+    {
         return 1;
     }
     else
     {
         return 0;
     }
-    
 }
 
-void push(struct stack *ptr,char oParenthesis){
+void push(struct stack *ptr, char oParenthesis)
+{
     ++ptr->top;
-    ptr->arr[ptr->top]=oParenthesis;
+    ptr->arr[ptr->top] = oParenthesis;
 }
 
-void pop(struct stack *ptr){
+void pop(struct stack *ptr)
+{
     --ptr->top;
 }
 
-int main(){
+int main()
+{
     struct stack *s;
-    int flag=0;
+    int flag = 0;
     char exp[40];
-    s=(struct stack*)malloc(sizeof(struct stack));
-    s->top=-1;
-    s->size=20;
-    s->arr=(char *)malloc(s->size*sizeof(char));
+    s = (struct stack *)malloc(sizeof(struct stack));
+    s->top = -1;
+    s->size = 20;
+    s->arr = (char *)malloc(s->size * sizeof(char));
 
     puts("enter the expression : ");
-    gets(exp);   
+    gets(exp);
 
-    for(int i=0;i<strlen(exp);i++){
-        if (exp[i]=='(')
+    for (int i = 0; i < strlen(exp); i++)
+    {
+        if (exp[i] == '(')
         {
-            push(s,exp[i]);
+            push(s, exp[i]);
         }
-        else if(exp[i]==')')
-        {   
+        else if (exp[i] == ')')
+        {
             if (isEmpty(s))
             {
-                flag=1;
+                flag = 1;
             }
             pop(s);
-        }    
+        }
         else
         {
             continue;
-        }   
+        }
     }
-    if(s->top==-1&&flag!=1){
+    if (s->top == -1 && flag != 1)
+    {
         printf("the parenthesis in expression is balanced");
     }
     else
     {
         printf("The parenthesis in expression is unbalanced");
     }
-
 }
